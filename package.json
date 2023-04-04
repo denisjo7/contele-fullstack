@@ -21,7 +21,10 @@
     "jest": "^28.1.0",
     "nodemon": "^2.0.16"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon ./src/app.js",
+    "test": "jest"
+  },
   "author": "",
   "license": "ISC"
 }

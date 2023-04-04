@@ -1,13 +1,13 @@
 'use strict'
 
 const knex = require('knex')({
-    client: 'mysql',
-    connection: {
-      host: process.env.WRITER_MYSQL_HOST,
-      user: process.env.WRITER_MYSQL_USER,
-      port: process.env.WRITER_MYSQL_PORT,
-      password: process.env.WRITER_MYSQL_PASS,
-      database: 'main'
+  client: 'mysql',
+  connection: {
+    host: process.env.WRITER_MYSQL_HOST,
+    user: process.env.WRITER_MYSQL_USER,
+    port: process.env.WRITER_MYSQL_PORT,
+    password: process.env.WRITER_MYSQL_PASS,
+    database: 'main'
   },
   pool: {
     min: 1,
@@ -17,12 +17,12 @@ const knex = require('knex')({
 
 const getTransaction = async () => {
 
-    const transaction = await knex.transaction()
+  const transaction = await knex.transaction()
 
-    return {transaction};
+  return { transaction };
 }
 
-const commitTransaction = ({ transaction }) => transaction.rollback();
+const commitTransaction = ({ transaction }) => transaction.commit();
 
 const rollbackTransaction = ({ transaction }) => transaction.rollback();
 

@@ -10,7 +10,8 @@ const port = Number(process.env.PORT || 8081)
 const app = express();
 
 const whitelist = [
-  // TODO whitelist
+  // Remover essa url quando subir em produção
+  'http://localhost:8081'
 ]
 
 app.use(cors({

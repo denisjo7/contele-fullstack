@@ -1,5 +1,5 @@
 'use strict'
-const httpStatusCodes = require('http-status-codes');
+const { StatusCodes } = require('http-status-codes');
 const { httpErrorHandler } = require("../../common/handlers");
 const { createUserService } = require('../../services');
 
@@ -17,7 +17,7 @@ const createUserHandler = async (req, res, next) => {
       full_name
     })
 
-    return res.status(httpStatusCodes.OK).send(created_user);
+    return res.status(StatusCodes.OK).send(created_user);
   } catch (error) {
     return httpErrorHandler({ req, res, error })
   }

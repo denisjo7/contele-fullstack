@@ -1,10 +1,10 @@
-const httpStatusCodes = require('http-status-codes');
+const { StatusCodes } = require('http-status-codes');
 const uuid = require('uuid');
 
 const httpErrorHandler = ({ req, res, error }) => {
 
-  const response_status_code = error.statusCode || httpStatusCodes.INTERNAL_SERVER_ERROR;
-  const is_internal = error.statusCode === httpStatusCodes.INTERNAL_SERVER_ERROR;
+  const response_status_code = error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
+  const is_internal = error.statusCode === StatusCodes.INTERNAL_SERVER_ERROR;
   const error_id = uuid.v4();
 
   const response = {

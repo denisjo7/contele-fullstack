@@ -16,6 +16,9 @@ const whitelist = [
 
 app.use(cors({
   origin: function (origin, callback) {
+    // Remover essa configuração quando subir em produção
+    if (!origin) return callback(null, true);
+
     const allowed = whitelist.indexOf(origin) !== -1
     if (allowed) return callback(null, true);
 

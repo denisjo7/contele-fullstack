@@ -5,16 +5,20 @@ const SwaggerUi = require('swagger-ui-express');
 const express = require('express');
 const { buildHandlers } = require('./modules');
 const { handlers } = buildHandlers();
-const port = Number(process.env.PORT || 8089)
+const port = Number(process.env.PORT || 8081)
 
 const app = express();
 
 const whitelist = [
-  // TODO whitelist
+  // Remover essa url quando subir em produção
+  'http://localhost:8081'
 ]
 
 app.use(cors({
   origin: function (origin, callback) {
+    // Remover essa configuração quando subir em produção
+    if (!origin) return callback(null, true);
+
     const allowed = whitelist.indexOf(origin) !== -1
     if (allowed) return callback(null, true);
 

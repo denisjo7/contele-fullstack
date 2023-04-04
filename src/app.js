@@ -5,7 +5,7 @@ const SwaggerUi = require('swagger-ui-express');
 const express = require('express');
 const { buildHandlers } = require('./modules');
 const { handlers } = buildHandlers();
-const port = Number(process.env.PORT || 8089)
+const port = Number(process.env.PORT || 8081)
 
 const app = express();
 
